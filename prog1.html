@@ -1,81 +1,25 @@
-<!doctype html>
-<html >
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title> VIBGYOR IMPLEMENTATION</title>
-<link rel="stylesheet" href="vibgyor.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display full name</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    var app = angular.module("myApp",[]);
+    app.controller("Mycont",function($scope){
+      $scope.firstName="hi"
+      $scope.lastName="hi"
+    })
+  </script>
 </head>
-<body>
-<h1>VIBGYOR IMPLEMENTATION</h1>
-<table class='tab'>
-<tr>
-<td id="one"> Violet </td>
-<td id="two"> indigo </td>
-<td id="three">blue </td>
-<td id="four">green</td>
-<td id="five">yellow </td>
-<td id="six"> orange</td>
-<td id="seven"> red </td>
-</tr>
-</table>
+<body ng-app="myApp">
+  <h2>angularjs TO DISPLAY FULLL NAME</h2>
+  <div ng-controller="Mycont">
+    enter the first name:<input type="text" ng-model="firstName"><br/>
+    enter the last name:<input type="text" ng-model="lastName"><br/>
+    full name:{{firstName +" "+lastName}}
+  </div>
+  
 </body>
 </html>
-/*VIBGYOR.CSS*/
-<script>
-h1
-{ 
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-td
-{
-height:300px;
-width:150px;
-border:6px solid white;
-}
-.tab
-{
-border:6px dotted black;
-}
-#one
-{
-background: #9400D3;
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-#two
-{
-background: #4B0082;
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-#three
-{
-background: #0000FF;
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-#four
-{
-background: #00FF00;
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-#five
-{
-background: #FFFF00;
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-#six
-{
-background: #FF7F00;
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-#seven
-{
-background: #FF0000;
-font-family:'GoudyBookletter 1911',serif;
- text-align: center;
-}
-</script>
