@@ -1,20 +1,51 @@
-<html> 
-<head> 
-<script> 
-function myFunction2() { 
-let num=document.getElementById("num").value; 
-const points = num.split(","); 
-points.sort(function(a, b){return b - a}); 
-document.getElementById("demo1").innerHTML = points; 
-} 
-</script> 
-</head> 
-<body> 
-<h2>JavaScript Array Sort</h2> 
-<p>Click the buttons to sort the array numerically.</p> 
-Enter Numbers separated by Comma : 
-<input type="text" id="num"/><br/> 
-<button onclick="myFunction2()">Sort</button> 
-<p>Descending Order:<span id="demo1" label="Output Values"></span></p> 
-< /body> 
-</html>
+<!DOCTYPE html>
+<html>
+<title>Angular JS Filter Employee Search Application</title>
+<head>
+<script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.mi
+n.js">
+</script>
+<script>
+var app=angular.module("empSearchApp",[]);
+app.controller("empSearchAppCntrl",function($scope){
+$scope.empList=[
+{'name':'A','salary':50000},
+{'name':'B','salary':40000},
+{'name':'C','salary':30000},
+{'name':'D','salary':40000}
+
+]
+$scope.clearFilters=function()
+{
+$scope.searchName=''
+$scope.searchSalary=''
+}
+});
+</script>
+</head>
+<body ng-app="empSearchApp">
+<h1>Employee Search Application</h1>
+<div ng-controller="empSearchAppCntrl">
+Search by Employee Name:<input type="text" ng-model="searchName">
+Search by Employee salary:<input type="number"
+ng-model="searchSalary">
+<button ng-click="clearFilters()">Clear Filters</button>
+<br/>
+<h3>List of Employees</h3>
+<table border="1">
+  <tr>
+    <th>SLNO</th>
+    <th>EMP NAME</th>
+    <th>SALARY</th>
+    </tr>
+    <tr ng-repeat="emp in empList | 
+    filter:{name:searchName,salary:searchSalary}">
+    <td>{{$index+1}}</td>
+    <td>{{emp.name}}</td>
+    <td>{{emp.salary}}</td>
+    </tr>
+    </table>
+    </div>
+    </body>
+    </html>
