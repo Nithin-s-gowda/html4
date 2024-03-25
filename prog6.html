@@ -1,24 +1,24 @@
-<!doctype html> 
-<head> 
-<script>function validate() 
-{ 
-if(document.getElementById("username").value.length==0 || 
-document.getElementById("password").value.length==0) 
-alert("False"); 
-else 
-alert("True"); 
-} 
-</script> 
-</head> 
-<body> 
-<form> 
-<div> 
-Username: 
-<input type="text" id="username" /> 
-Password: 
-<input type="password" id="password" /> 
-<input type="submit" onclick="validate();" /> 
-</div> 
-</form> 
-</body> 
+<!DOCTYPE html>
+<html>
+<title>Date Application</title>
+<head>
+<script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+</script>
+<script>
+var app=angular.module("dateApp",[]);
+app.controller("dateAppCntrl",function($scope){
+$scope.currentDate=new Date();
+});
+</script>
+</head>
+<body ng-app="dateApp">
+<h1>Date in different formats</h1>
+<div ng-controller="dateAppCntrl">
+Current Date and Time: {{currentDate}}<br/>
+Short Date: {{currentDate|date: 'short'}}<br/>
+Long Date: {{currentDate |date: 'fullDate'}}<br/>
+Medium Date:{{currentDate| date: 'medium'}}
+</div>
+</body>
 </html>
